@@ -78,7 +78,6 @@ plt.ylabel("Number")
 plt.legend()
 
 plt.show()
- %%time
 
 fig = plt.figure(figsize=(25, 16))
 

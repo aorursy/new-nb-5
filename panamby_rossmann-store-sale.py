@@ -211,10 +211,6 @@ def cramer_v( x, y ):
 
 def jupyter_settings():
 
-    %matplotlib inline
-
-    %pylab inline
-
     
 
     plt.style.use( 'bmh' )
@@ -222,10 +218,6 @@ def jupyter_settings():
     plt.rcParams['figure.figsize'] = [25, 12]
 
     plt.rcParams['font.size'] = 24
-
-    
-
-    display( HTML( '<style>.container { width:100% !important; }</style>') )
 
     pd.options.display.max_columns = None
 
@@ -489,7 +481,7 @@ df3 = df3.drop( cols_drop, axis = 1)
 df3.columns
 df4 = df3.copy()
 sns.distplot( df4['sales'], kde=False )
-num_attributes.hist(bins=25);
+num_attributes.hist(bins=25)
 cat_attributes.head()
 df4['state_holiday'].drop_duplicates()
 df4['store_type'].drop_duplicates()
@@ -557,7 +549,7 @@ sns.kdeplot( df4[df4['assortment'] == 'basic']['sales'], label='basic', shade=Tr
 sns.kdeplot( df4[df4['assortment'] == 'extra']['sales'], label='extra', shade=True )
 aux1 = df4[['assortment', 'sales']].groupby( 'assortment' ).sum().reset_index()
 
-sns.barplot( x='assortment', y='sales', data=aux1);
+sns.barplot( x='assortment', y='sales', data=aux1)
 
 
 
@@ -597,14 +589,14 @@ sns.scatterplot( x='competition_distance', y='sales', data=aux1 )
 
 plt.subplot(1,3,3)
 
-sns.heatmap( aux1.corr( method='pearson' ), annot=True );
+sns.heatmap( aux1.corr( method='pearson' ), annot=True )
 
 aux1 = df4[['competition_open_since_month', 'sales']].groupby( 'competition_open_since_month' ).sum().reset_index()
 
-sns.barplot( x='competition_open_since_month', y='sales', data=aux1);
+sns.barplot( x='competition_open_since_month', y='sales', data=aux1)
 aux1 = df4[['competition_time_month', 'sales']].groupby( 'competition_time_month' ).sum().reset_index()
 
-sns.barplot( x='competition_time_month', y='sales', data=aux1);
+sns.barplot( x='competition_time_month', y='sales', data=aux1)
 plt.subplot( 1, 3, 1)
 
 aux1 = df4[['competition_time_month', 'sales']].groupby( 'competition_time_month' ).sum().reset_index()
@@ -613,7 +605,7 @@ aux2 = aux1[( aux1['competition_time_month'] < 120 ) & ( aux1['competition_time_
 
 sns.barplot( x='competition_time_month', y='sales', data=aux2)
 
-plt.xticks( rotation=90 );
+plt.xticks( rotation=90 )
 
 
 
@@ -625,10 +617,10 @@ sns.regplot( x='competition_time_month', y='sales', data=aux2)
 
 plt.subplot( 1, 3, 3)
 
-sns.heatmap( aux1.corr( method='pearson'), annot=True );
+sns.heatmap( aux1.corr( method='pearson'), annot=True )
 aux1 = df4[['promo_time_week', 'sales']].groupby('promo_time_week').sum().reset_index()
 
-sns.barplot( x='promo_time_week', y='sales', data=aux1 );
+sns.barplot( x='promo_time_week', y='sales', data=aux1 )
 aux1 = df4[['promo_time_week', 'sales']].groupby('promo_time_week').sum().reset_index()
 
 
@@ -641,15 +633,15 @@ plt.subplot(grid[0,0])
 
 aux2 = aux1[aux1['promo_time_week'] > 0] # promo extendido
 
-sns.barplot( x='promo_time_week', y='sales', data=aux2 );
+sns.barplot( x='promo_time_week', y='sales', data=aux2 )
 
-plt.xticks( rotation=90 );
+plt.xticks( rotation=90 )
 
 
 
 plt.subplot(grid[0,1])
 
-sns.regplot( x='promo_time_week', y='sales', data=aux2 );
+sns.regplot( x='promo_time_week', y='sales', data=aux2 )
 
 
 
@@ -657,21 +649,21 @@ plt.subplot(grid[1,0])
 
 aux3 = aux1[aux1['promo_time_week'] < 0] # promo regular
 
-sns.barplot( x='promo_time_week', y='sales', data=aux3 );
+sns.barplot( x='promo_time_week', y='sales', data=aux3 )
 
-plt.xticks( rotation=90 );
+plt.xticks( rotation=90 )
 
 
 
 plt.subplot(grid[1,1])
 
-sns.regplot( x='promo_time_week', y='sales', data=aux3 );
+sns.regplot( x='promo_time_week', y='sales', data=aux3 )
 
 
 
 plt.subplot(grid[:,2])
 
-sns.heatmap( aux1.corr( method='pearson' ), annot=True );
+sns.heatmap( aux1.corr( method='pearson' ), annot=True )
 # Pq riscou?
 df4[['promo', 'promo2', 'sales']].groupby( ['promo', 'promo2'] ).sum().reset_index()
 aux1 = df4[( df4['promo'] == 1 ) & ( df4['promo2'] == 1 )][['year_week', 'sales']].groupby( 'year_week' ).sum().reset_index()
@@ -686,7 +678,7 @@ aux2.plot(ax=ax)
 
 
 
-ax.legend( labels=['Tradicional & Extendida', 'Extendida'] );
+ax.legend( labels=['Tradicional & Extendida', 'Extendida'] )
 aux = df4[df4['state_holiday'] != 'regular_day']
 
 
@@ -695,7 +687,7 @@ plt.subplot( 1, 2, 1)
 
 aux1 = aux[['state_holiday', 'sales']].groupby( 'state_holiday' ).sum().reset_index()
 
-sns.barplot( x='state_holiday', y='sales', data=aux1);
+sns.barplot( x='state_holiday', y='sales', data=aux1)
 
 
 
@@ -703,64 +695,64 @@ plt.subplot( 1, 2, 2)
 
 aux2 = aux[['year', 'state_holiday', 'sales']].groupby( ['year', 'state_holiday'] ).sum().reset_index()
 
-sns.barplot( x='year', y='sales', hue='state_holiday', data=aux2 );
+sns.barplot( x='year', y='sales', hue='state_holiday', data=aux2 )
 aux1 = df4[['year', 'sales']].groupby( 'year' ).sum().reset_index()
 
 
 
 plt.subplot( 1, 3, 1 )
 
-sns.barplot( x='year', y='sales', data=aux1 );
+sns.barplot( x='year', y='sales', data=aux1 )
 
 
 
 plt.subplot( 1, 3, 2 )
 
-sns.regplot( x='year', y='sales', data=aux1 );
+sns.regplot( x='year', y='sales', data=aux1 )
 
 
 
 plt.subplot( 1, 3, 3 )
 
-sns.heatmap( aux1.corr( method='pearson' ), annot=True );
+sns.heatmap( aux1.corr( method='pearson' ), annot=True )
 aux1 = df4[['month', 'sales']].groupby( 'month' ).sum().reset_index()
 
 
 
 plt.subplot( 1, 3, 1 )
 
-sns.barplot( x='month', y='sales', data=aux1 );
+sns.barplot( x='month', y='sales', data=aux1 )
 
 
 
 plt.subplot( 1, 3, 2 )
 
-sns.regplot( x='month', y='sales', data=aux1 );
+sns.regplot( x='month', y='sales', data=aux1 )
 
 
 
 plt.subplot( 1, 3, 3 )
 
-sns.heatmap( aux1.corr( method='pearson' ), annot=True );
+sns.heatmap( aux1.corr( method='pearson' ), annot=True )
 aux1 = df4[['day', 'sales']].groupby( 'day' ).sum().reset_index()
 
 
 
 plt.subplot( 2, 2, 1 )
 
-sns.barplot( x='day', y='sales', data=aux1 );
+sns.barplot( x='day', y='sales', data=aux1 )
 
 
 
 plt.subplot( 2, 2, 2 )
 
-sns.regplot( x='day', y='sales', data=aux1 );
+sns.regplot( x='day', y='sales', data=aux1 )
 
 
 
 plt.subplot( 2, 2, 3 )
 
-sns.heatmap( aux1.corr( method='pearson' ), annot=True );
+sns.heatmap( aux1.corr( method='pearson' ), annot=True )
 
 
 
@@ -772,31 +764,31 @@ aux2 = aux1[['before_after', 'sales']].groupby( 'before_after' ).sum().reset_ind
 
 plt.subplot( 2, 2, 4 )
 
-sns.barplot( x='before_after', y='sales', data=aux2 );
+sns.barplot( x='before_after', y='sales', data=aux2 )
 aux1 = df4[['day_of_week', 'sales']].groupby( 'day_of_week' ).sum().reset_index()
 
 
 
 plt.subplot( 1, 3, 1 )
 
-sns.barplot( x='day_of_week', y='sales', data=aux1 );
+sns.barplot( x='day_of_week', y='sales', data=aux1 )
 
 
 
 plt.subplot( 1, 3, 2 )
 
-sns.regplot( x='day_of_week', y='sales', data=aux1 );
+sns.regplot( x='day_of_week', y='sales', data=aux1 )
 
 
 
 plt.subplot( 1, 3, 3 )
 
-sns.heatmap( aux1.corr( method='pearson' ), annot=True );
+sns.heatmap( aux1.corr( method='pearson' ), annot=True )
 aux1 = df4[['school_holiday', 'sales']].groupby( 'school_holiday' ).sum().reset_index()
 
 plt.subplot( 2, 1, 1 )
 
-sns.barplot( x='school_holiday', y='sales', data=aux1 );
+sns.barplot( x='school_holiday', y='sales', data=aux1 )
 
 
 
@@ -804,7 +796,7 @@ aux2 = df4[['month', 'school_holiday', 'sales']].groupby( ['month', 'school_holi
 
 plt.subplot( 2, 1, 2 )
 
-sns.barplot( x='month', y='sales', hue='school_holiday', data=aux2 );
+sns.barplot( x='month', y='sales', hue='school_holiday', data=aux2 )
 tab = [['Hipoteses', 'Conclusao', 'Relevancia'],
 
        ['H1', 'Falsa', 'Baixa'],

@@ -18,14 +18,6 @@ for dirname, _, filenames in os.walk(fp):
 
     total_files=filenames
 
-        
-
-
-
-
-
-
-
 # You can write up to 5GB to the current directory (/kaggle/working/) that gets preserved as output when you create a version using "Save & Run All" 
 
 # You can also write temporary files to /kaggle/temp/, but they won't be saved outside of the current session
@@ -104,9 +96,7 @@ for en,i in enumerate([0,50,60,80,100]):
     image = io.imread('/kaggle/input/global-wheat-detection/train/'+str(train_df.loc[0,"image_id"])+".jpg")
 
     if en==0:
-
-        
-
+    
         ax[en].imshow(tfm.resize(image,(512,512)))
 
         continue
@@ -132,15 +122,15 @@ for en,i in enumerate([0,50,60,80,100]):
 #image.shape
 t_filter=[filters.threshold_li,
 
-filters.threshold_triangle,
+        filters.threshold_triangle,
 
-          filters.threshold_yen,
+        filters.threshold_yen,
 
-          filters.threshold_isodata,
+        filters.threshold_isodata,
 
-          filters.threshold_sauvola
+        filters.threshold_sauvola
 
-         ]
+        ]
 
 fig,ax=plt.subplots(1,5,figsize=(32,32))
 
@@ -394,4 +384,3 @@ df["PredictionString"]=temp_df["bbox"]
 
         
 df.to_csv("submission.csv",index=False)
-\

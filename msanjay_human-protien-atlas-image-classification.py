@@ -59,9 +59,9 @@ def get_label_freqs(targets, label_names, ascending=None):
 train_freqs = get_label_freqs(train_df.Target, label_names, ascending=False)
 train_freqs
 # Visualize the frequency table using a chart
-train_freqs.plot(x='name', y='frequency', kind='bar', title='Name vs. Frequency');
+train_freqs.plot(x='name', y='frequency', kind='bar', title='Name vs. Frequency')
 # Use logarithmic axis for easier interpretation
-train_freqs.plot(x='name', y='frequency', kind='bar', logy=True, title='Name vs. log(Frequency)');
+train_freqs.plot(x='name', y='frequency', kind='bar', logy=True, title='Name vs. log(Frequency)')
 train_sample = "ac39847a-bbb1-11e8-b2ba-ac1f6b6435d0_red.png"
 from imageio import imread
 import matplotlib.pyplot as plt
@@ -70,13 +70,13 @@ import matplotlib.pyplot as plt
 img0 = imread(str(TRAIN_DIR/train_sample))
 print(img0.shape)
 plt.imshow(img0)
-plt.title(train_sample[0]);
+plt.title(train_sample[0])
 # Use a color map for grayscale images
-plt.imshow(img0, cmap="Reds");
+plt.imshow(img0, cmap="Reds")
 # For RGB images, it "just works"
 
 img = imread('sample.jpg')
-plt.imshow(img);
+plt.imshow(img)
 CHANNELS = ['green', 'red', 'blue', 'yellow']
 
 # Load images for multiple channels
@@ -108,7 +108,7 @@ def get_labels(image_id):
 # Look at a sample grid
 img_id = 'ac39847a-bbb1-11e8-b2ba-ac1f6b6435d0'
 img, title = load_image(img_id), get_labels(img_id)
-show_image_filters(img, title);
+show_image_filters(img, title)
 print(img.shape)
 # Combine with pandas to view a random sample
 for img_id in train_df.sample(3).index:
@@ -153,6 +153,5 @@ def make_sub(fname):
     sub_df.to_csv(sub_fname, index=None)
     fpath = SUB_DIR/fname
     sub_df.to_csv(fpath, index=None)
-    !head {fpath}
     return FileLink(fpath)
 make_sub('best_submission.csv')

@@ -50,19 +50,6 @@ from torchvision import transforms, models
 
 import matplotlib.pyplot as plt
 
-
-
-
-
-    include=[
-
-        "dataclasses",
-
-    ],
-
-    warn_on_error=True
-
-)
 @dataclass
 
 class Config:
@@ -633,7 +620,7 @@ def main(config, fold):
 
     LOGGER.info(f"\n{pformat(config.__dict__)}\n")
 
-    LOGGER.info("\nHERE GOES! 🚀")
+    LOGGER.info("\nHERE GOES!")
 
     LOGGER.info(f"eval fold: {fold}")
 

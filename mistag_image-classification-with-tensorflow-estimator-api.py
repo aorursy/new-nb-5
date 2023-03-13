@@ -23,8 +23,6 @@ USE_INTERNET = False
 
 if USE_INTERNET:
 
-    %env TFHUB_CACHE_DIR=./tfhub_cache/imagenet/feature_vector
-
     mod_link="https://tfhub.dev/google/imagenet/nasnet_large/feature_vector/3"
 
     mod_name=mod_link.split('imagenet/')[1].split('/')[0]
@@ -262,4 +260,4 @@ sns.set()
 
 cp = sns.catplot(x="diagnosis", y="probability", kind="violin", inner=None, data=df, palette=sns.color_palette("RdBu_r", 5))
 
-sns.swarmplot(x="diagnosis", y="probability", color="k", size=3, data=df, ax=cp.ax);
+sns.swarmplot(x="diagnosis", y="probability", color="k", size=3, data=df, ax=cp.ax)

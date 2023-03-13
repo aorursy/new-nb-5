@@ -392,7 +392,6 @@ if RUN_NOTEBOOK==True:
 
 if RUN_NOTEBOOK==True:
     # EfficientNet
-    !pip install efficientnet_pytorch
     from efficientnet_pytorch import EfficientNet
     effnet = EfficientNet.from_pretrained('efficientnet-b5',num_classes=1)
     model_dir = 'models/dfdc-effnet'
